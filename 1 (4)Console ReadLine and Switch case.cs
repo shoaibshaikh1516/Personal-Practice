@@ -13,19 +13,17 @@ namespace ConsoleApplication3
             int a,b,c;
             char ch;
 
-            
-
             do
-            {
+               {
               
 
-                a = Convert.ToInt32(Console.ReadLine());
-                b = Convert.ToInt32(Console.ReadLine());
+                    a = Convert.ToInt32(Console.ReadLine());
+                    b = Convert.ToInt32(Console.ReadLine());
             
-                Console.WriteLine("Enter ur choice");
-                x = Convert.ToInt32(Console.ReadLine());
-                switch (x)
-                {
+                    Console.WriteLine("Enter ur choice");
+                    x = Convert.ToInt32(Console.ReadLine());
+                   switch (x)
+                   {
                     case 1:
                         c = a + b;
                         Console.WriteLine("addition is {0}", c);
@@ -37,15 +35,16 @@ namespace ConsoleApplication3
                     default:
                         Console.WriteLine("do u wanna continue");
                         break;
-                }
-                Console.WriteLine("do u wanna continue");
-               ch=Convert.ToChar(Console.ReadLine());
+                    }
 
-            }while (ch=='Y'|| ch=='y');
+                   Console.WriteLine("do u wanna continue");
+                   ch=Convert.ToChar(Console.ReadLine());
+
+                }while (ch=='Y'|| ch=='y');
 
             Console.ReadLine();
 
-         }  
-        }
-    
+        }  
+   }
+
 }
