@@ -20,13 +20,11 @@ namespace ConsoleApplication3
             {
                 Console.WriteLine("odd");
            
-           }
-            Console.ReadLine();
+             }
+         Console.ReadLine();
 
         }
 
-
-      
-        }
+    }
     
 }
