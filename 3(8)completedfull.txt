@@ -1,0 +1,146 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace vehmachine
+{
+    enum VehicleType
+    {
+        TwoWheeler,
+        FourWheeler,
+        ThreeWheeler
+    };
+
+    class Vehicle
+    {
+        protected VehicleType v;
+        protected string colors;
+        protected int engineno;
+
+        public Vehicle()
+        { 
+        }
+
+        public Vehicle(string _colors,int _engineno, VehicleType _v)
+        {    
+            v=_v;
+            engineno=_engineno;
+            colors=_colors;
+        }
+       
+        public void show()
+        {   
+            Console.WriteLine("\n colors {0} \n engine no {1}",colors,engineno);
+            Console.WriteLine("vehicletype  "+v);
+        }
+
+    }
+
+
+
+    class Auto : Vehicle
+    { 
+        string make ;
+        int price; 
+        string name;
+        int wheels;
+        
+
+        public Auto()
+        {}
+        
+        public Auto(string _name,string colors_d,int engineno_d,VehicleType _vt,string _make ,int _wheels,int _price):base(colors_d,engineno_d,_vt)
+        {   
+          
+                wheels = _wheels;
+                make=_make;
+                price=_price;
+                name=_name;
+
+        }
+        public void show()
+        {
+
+
+            Console.WriteLine(" Name :{0}\n color: {1} \n Engine no: {2} \n vehicletype: {3} \n Make: {4} \n no of wheels: {5} \n price: {6} ", name, colors, engineno, v, make, wheels, price);
+        }
+       
+    }
+
+    class car : Vehicle
+    {
+         string make ;
+        int price; 
+        string name;
+        int wheels;
+        
+
+        public car()
+        {}
+        
+        public car(string _name,string colors_d,int engineno_d,VehicleType _vt,string _make ,int _wheels,int _price):base(colors_d,engineno_d,_vt)
+        {   
+          
+                wheels = _wheels;
+                make=_make;
+                price=_price;
+                name=_name;
+
+        }
+        public void show()
+        {
+
+
+            Console.WriteLine(" Name :{0}\n color: {1} \n Engine no: {2} \n vehicletype: {3} \n Make: {4} \n no of wheels: {5} \n price: {6} ", name, colors, engineno, v, make, wheels, price);
+        }
+    }
+
+    class scooter : Vehicle
+    {
+         string make ;
+        int price; 
+        string name;
+        int wheels;
+        
+
+        public scooter()
+        {}
+        
+        public scooter(string _name,string colors_d,int engineno_d,VehicleType _vt,string _make ,int _wheels,int _price):base(colors_d,engineno_d,_vt)
+        {   
+          
+                wheels = _wheels;
+                make=_make;
+                price=_price;
+                name=_name;
+
+        }
+        public void show()
+        {
+
+
+            Console.WriteLine(" Name :{0}\n color: {1} \n Engine no: {2} \n vehicletype: {3} \n Make: {4} \n no of wheels: {5} \n price: {6} ", name, colors, engineno, v, make, wheels, price);
+        }
+    }
+
+
+    
+
+    
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //Vehicle v_obj = new Vehicle(100,"red",VehicleType.FourWheeler);
+           // v_obj.show();
+            Auto at=new Auto("jaguar 9600 hp shoaib ","red",1212,VehicleType.FourWheeler,"jaguar",4,20000000);
+            at.show();
+
+
+            Console.ReadKey();
+
+        }
+    }
+}
