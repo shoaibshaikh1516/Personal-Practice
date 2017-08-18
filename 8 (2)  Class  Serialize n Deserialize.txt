@@ -1,0 +1,56 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.IO;
+using System.Threading.Tasks;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
+
+
+namespace ConsoleApplication59
+{
+
+    [Serializable]                  //imp to serialize class
+    class Student
+    {
+        public int Age { get; set; }
+        public string  Name { get; set; }
+        public string Subject { get; set; }
+        public float Marks { get; set; }
+
+        public void ShowStud()
+        {
+            Console.WriteLine("Name {0}",Name);
+            Console.WriteLine("Age {0}",Age);
+            Console.WriteLine("Subject {0}",Subject);
+            Console.WriteLine("Marks {0}",Marks);
+        }
+
+    }
+
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Student std = new Student();
+            std.Age = 21;
+            std.Name = "Shoaib";
+            std.Subject = "TOC";
+            std.Marks = 83;
+
+            FileStream fs = new FileStream(@"d:\classsrial.txt", FileMode.OpenOrCreate, FileAccess.ReadWrite);
+            BinaryFormatter bf = new BinaryFormatter();
+            bf.Serialize(fs, std);    //encode
+
+            fs.Seek(0, SeekOrigin.Begin);
+            Student res = (Student)bf.Deserialize(fs);
+            Console.WriteLine("----after deserialize of class i.e serialize data");
+            res.ShowStud();
+           
+            //Console.WriteLine(res.Name+""+res.Age+" "+res.Subject+" "+res.Marks);
+            Console.Read();
+        }
+    }
+}

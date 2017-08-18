@@ -1,0 +1,42 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Soap;
+
+namespace SoapSerializationApp
+{
+    [Serializable]
+    public class Product
+    {
+        int pId;
+        string pName;
+        double price;
+        int quantity;
+        public Product()
+        { }
+        public Product(int id,string nam,double pri,int qua)
+        {
+            pId = id;
+            pName = nam;
+            quantity = qua;
+        }
+        public double TotAmount()
+        {
+            return price * quantity;
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Product pd = new Product(123, "Geometry Box", 80.93,3);
+            FileStream fs = new FileStream(@"d:\product.txt",FileMode.OpenOrCreate,FileAccess.ReadWrite);
+            SoapFormatter sf = new SoapFormatter();
+            sf.Serialize(fs, pd);
+
+        }
+    }
+}

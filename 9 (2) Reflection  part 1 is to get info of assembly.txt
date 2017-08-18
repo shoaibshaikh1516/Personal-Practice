@@ -1,0 +1,68 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO;
+using System.Reflection;
+
+namespace ConsoleApplication62
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("-------- info type int----------");
+            int x = 34;
+            Type t = x.GetType();               //info type int 
+            Console.WriteLine(t.Name);
+            Console.WriteLine(t.Namespace);
+            Console.WriteLine(t.FullName);
+            Console.WriteLine(t.IsPublic);
+            Console.WriteLine(t.BaseType);
+
+
+
+            Console.WriteLine("--------info type object----------");
+            object obj = new object();
+            Type t2 = obj.GetType();               //info type object 
+            Console.WriteLine(t2.Name);
+            Console.WriteLine(t2.Namespace);
+            Console.WriteLine(t2.FullName);
+            Console.WriteLine(t2.IsPublic);
+            Console.WriteLine(t2.BaseType);  //<-----as object class is base class for all so it does not have base fonobject itself
+
+            Console.WriteLine("-------info type Double-----------");
+            double dob = 34;
+            Type t3 = dob.GetType();               //info type Double 
+            Console.WriteLine(t3.Name);
+            Console.WriteLine(t3.Namespace);
+            Console.WriteLine(t3.FullName);
+            Console.WriteLine(t3.IsPublic);
+            Console.WriteLine(t3.BaseType);
+
+            Console.WriteLine("-------info type float-----------");
+            float flo = 34;
+            Type t4 = flo.GetType();               //info type float 
+            Console.WriteLine(t4.Name);
+            Console.WriteLine(t4.Namespace);
+            Console.WriteLine(t4.FullName);
+            Console.WriteLine(t4.IsPublic);
+            Console.WriteLine(t4.BaseType);
+
+            Console.WriteLine("--- info type string---------------");
+            string str = "shoaib";
+            Type t5 = str.GetType();               //info type string 
+            Console.WriteLine(t5.Name);
+            Console.WriteLine(t5.Namespace);
+            Console.WriteLine(t5.FullName);
+            Console.WriteLine(t5.IsPublic);
+            Console.WriteLine(t5.BaseType);
+
+
+
+            Console.ReadKey();
+           
+        }
+    }
+}

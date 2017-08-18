@@ -1,0 +1,54 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Reflection;
+
+namespace ConsoleApplication63
+{
+    class Demo
+    {
+        public int x;
+        public string str;                   //has to be public
+        public void method()
+        { 
+        }
+        public int method_2()          
+        {
+            return 0;
+        }
+    
+    }
+
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("\n---------FieldInfo , GetField----------");
+            Type tc = typeof(Demo);
+            FieldInfo f = tc.GetField("x");   // FieldInfo is abstract class
+                                            // try PropertyInfo,MemberInfo
+             Console.WriteLine(f.FieldType);
+
+             Console.WriteLine("\n---------FieldInfo[] farr , GetFieldss----------");
+            FieldInfo[] farr = tc.GetFields();
+            foreach (var item in farr)
+            {
+                Console.WriteLine(item.FieldType+" "+item.Name);
+            }
+            
+            
+            Console.WriteLine("\n---------MemberInfo[] farr , GetFieldss----------");
+             MemberInfo[] mf = tc.GetFields();
+            foreach (var item in mf)
+            {
+                Console.WriteLine(item.MemberType + " \n" + item.Name+" \n"+item.MetadataToken);  //<--catch output
+            }
+            
+            Console.ReadKey();
+
+
+        }
+    }
+}

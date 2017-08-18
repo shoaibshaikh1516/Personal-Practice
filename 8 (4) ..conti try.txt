@@ -1,0 +1,59 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO;
+using System.Xml.Serialization;
+using System.Runtime.InteropServices;
+
+namespace ConsoleApplication60
+{
+    
+    //XMLroot
+
+    [Serializable]                  //imp to serialize class
+   [XmlRoot(ElementName="Age")]
+        public class Student_3              //  in XMLSerialization ,class has to be public
+    {
+       
+        public int Age { get; set; }   
+        public string Name { get; set; }
+          [NonSerialized]
+        public string Subject { get; set; }
+        public float Marks { get; set; }
+
+        public void ShowStud()
+        {
+            Console.WriteLine("Name {0}", Name);
+            Console.WriteLine("Age {0}", Age);
+            Console.WriteLine("Subject {0}", Subject);
+            Console.WriteLine("Marks {0}", Marks);
+        }
+
+    }
+
+
+    class Program
+    {
+        static void Main(string[] args)
+        {   Student_3 std=new Student_3();
+            std.Age = 21;
+            std.Name = "Shoaib";
+            std.Subject = "TOC";
+            std.Marks = 83;
+
+            FileStream fs3 = new FileStream(@"d:\Xml.xml",FileMode.OpenOrCreate,FileAccess.ReadWrite);
+            XmlSerializer xs = new XmlSerializer(typeof(Student_3)); //  in XMLSerialization ,class has to be public
+            xs.Serialize(fs3, std);
+
+            Console.WriteLine("-----Deserialize-------");
+            fs3.Seek(0, SeekOrigin.Begin);
+            Student_3 res =(Student_3)xs.Deserialize(fs3);
+
+            res.ShowStud();
+
+            Console.Read();
+        }
+    }
+}
