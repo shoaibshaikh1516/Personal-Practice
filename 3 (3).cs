@@ -30,7 +30,7 @@ namespace ConsoleApplication15
         static void Main(string[] args)
         {
 
-            StaticClass.Age = 22;
+            StaticClass.Age = 22;     //A static class is basically the same as a non-static class, but there is one difference: a static class cannot be instantiated. In other words, you cannot use the new keyword to create a variable of the class type.
             StaticClass.show();
             Console.ReadLine();
         }
